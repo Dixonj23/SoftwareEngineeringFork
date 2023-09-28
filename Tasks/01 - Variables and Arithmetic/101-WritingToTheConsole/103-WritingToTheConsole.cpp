@@ -18,6 +18,8 @@ int main()
     float radius = 10.0f;
     float area = 3.415926 * radius * radius;
 
+    printf("area = %5.3f\n", area);
+
     // TASK(b) - Use printf to display the value of the variable area. Look at the lecture slides and find out how to limit this to 3 decimal places
     // Write solution here
     
