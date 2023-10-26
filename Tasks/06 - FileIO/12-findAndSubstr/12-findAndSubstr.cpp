@@ -64,6 +64,26 @@ int main()
         return -1;
     }
 
+
+    //SOLUTION
+    pos = dataString.find("Area:");
+    if (pos == -1) {
+        cerr << "Identifier Area: is missing from file" << endl;
+        return -1;
+    }
+
+    following = dataString.substr(pos);
+
+    istringstream iss2(following);
+    iss2 >> strTag >> strCode;
+
+    if (iss2.fail()) {
+        cerr << "Error" << endl;
+        return -1;
+    }
+
+    cout << "Subject group is " << strCode << endl;
+
     // Done
     cout << "All is well!" << endl;
     return 0;

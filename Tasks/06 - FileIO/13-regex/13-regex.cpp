@@ -72,6 +72,30 @@ int main()
         cout << "Oops - could not find it" << endl;
     }
 
+    // Now look for the pair "Subject Area:"  and "COMP"
+    if (regex_search(dataString, match, regex("\\s*(Subject\\s*Area):\\s*(\\w*)\\s*"))) {
+        cout << "Full Match:" << match[0] << endl;
+        if (match.size() >= 3) {
+            tag = match[1];
+            strCode = match[2];
+            cout << "Pair found: (" << tag << ", " << strCode << ")" << endl;
+
+            //The regex search found a number, so we can convert it with some confidence
+            // However, I am writing defensively :)
+            try {
+                cout << tag << strCode << endl;
+            }
+            catch (exception e)
+            {
+                cerr << "Could not find \"Subject Area:\"" << endl;
+                return -1;
+            }
+        }
+    }
+    else {
+        cout << "Oops - could not find the module ID" << endl;
+    }
+
     // Done
     cout << "All is well!" << endl;
     return 0;

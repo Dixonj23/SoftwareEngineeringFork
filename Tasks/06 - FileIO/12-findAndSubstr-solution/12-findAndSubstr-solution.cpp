@@ -75,7 +75,6 @@ int main()
     following = dataString.substr(pos);      //From pos to the end
 
     //Now read the next two words
-
     istringstream iss2(following);
     iss2 >> strTag >> strCode;
     if (iss2.fail()) {

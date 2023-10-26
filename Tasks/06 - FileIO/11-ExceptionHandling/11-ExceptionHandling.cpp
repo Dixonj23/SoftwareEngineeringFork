@@ -47,12 +47,25 @@ int main()
             // Read the next word - it "should" be the module number, encoded as a string
             iss >> nextWord;
             if (!iss.fail()) {
-                //Convert a string to an integer
-                moduleNumber = stoi(nextWord);
-                //Write the new module code
-                cout << "COMP" << moduleNumber + 1 << endl;
-                //We are done! Break from the outer loop
-                break;
+                try {
+                    moduleNumber = stoi(nextWord);
+                    //Write the new module code
+                    cout << "COMP" << moduleNumber + 1 << endl;
+                    //We are done! Break from the outer loop
+                    break;
+                }
+                catch (exception e)
+                {
+                    // It seems stoi() has thrown an exception - suspect the file is corrupt or the format has changed
+
+                    //Detailed info to the error stream
+                    cerr << "Error! Data file format was not as expected. Exception thrown = " << e.what() << endl;
+                    cerr << "String value following \"ID:\" was expected to be numeric, and not \"" << nextWord << "\"" << endl;
+                    //User focused feedback to stdout
+                    cout << "The code has decided to break today. Please report this to the developers" << endl;
+                    cout << "Take the rest of the day off" << endl;
+                    return -1;
+                }
             }
         }
     }
