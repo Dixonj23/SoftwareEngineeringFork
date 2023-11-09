@@ -1,11 +1,15 @@
 // 22-Challenge2-ModuleRecord.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include "ModuleRecord.h"
 #include <iostream>
+
 
 int main()
 {
     std::cout << "Hello World!\n";
+    ModuleRecord m1(1,0, "1004", 20, 1 );
+    m1.moduleSummary();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
