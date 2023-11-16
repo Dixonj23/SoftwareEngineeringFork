@@ -30,7 +30,10 @@ public:
 
     // For a list of items
     void addCharge(vector<float> costs) {
-        //COMPLETE THIS
+        //COMPLETE 
+        for (unsigned int n = 0; n < costs.size(); n++) {
+            addCharge(costs[n]);
+        }
 
     }
 
